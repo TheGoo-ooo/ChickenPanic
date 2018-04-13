@@ -11,7 +11,7 @@ public class chk_collide : MonoBehaviour {
 
 	private float reproduceInterval;
 	SphereCollider cld;
-	public float time;
+	private float time = 1;
 
 	void Start () {
 		cld = GetComponent<SphereCollider> ();
