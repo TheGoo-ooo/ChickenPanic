@@ -14,6 +14,7 @@ public class chk_move : MonoBehaviour {
 	private float deltaTime = 0;
 	Vector3 moveForce = Vector3.zero;
 
+	private int currentDirection = 0;
 	private Vector2[] directions = {
 		new Vector2 (0, 1),
 		new Vector2 (1, 1),
@@ -29,7 +30,7 @@ public class chk_move : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 		Random.InitState (this.GetHashCode ());
 	}
-	
+
 
 	void Update () {
 		deltaTime += Time.deltaTime;
@@ -37,17 +38,19 @@ public class chk_move : MonoBehaviour {
 			deltaTime = 0;
 			MoveChicken ();
 		}
+		transform.rotation = Quaternion.Euler (0f, currentDirection * 360 / 7.0f, 0);
 	}
 
 	private void MoveChicken (){
-		if (Random.value < MOVE_CHANCE && moveForce == Vector3.zero) 
-		{			
-			Vector2 dir =  directions [(int)(Random.value * 7.5f)]; 
+		if (Random.value < MOVE_CHANCE && moveForce == Vector3.zero)
+		{
+			currentDirection = (int)(Random.value * 7.5f);
+			Vector2 dir =  directions [currentDirection];
 			dir *= FORCE;
 			moveForce.x = dir.x;
 			moveForce.y = 0.0f;
 			moveForce.z = dir.y;
-		} else 
+		} else
 		{
 			moveForce = Vector3.zero;
 			rb.velocity -= rb.velocity * 0.2f;
@@ -57,5 +60,6 @@ public class chk_move : MonoBehaviour {
 			moveForce.y = JUMP_FORCE;
 		}
 		rb.AddForce (moveForce);
+
 	}
 }
