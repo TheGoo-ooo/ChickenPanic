@@ -42,7 +42,7 @@ public class chk_move : MonoBehaviour {
 	private void MoveChicken (){
 		if (Random.value < MOVE_CHANCE && moveForce == Vector3.zero) 
 		{			
-			Vector2 dir =  directions [(int)(Random.value * 7.5f)];
+			Vector2 dir =  directions [(int)(Random.value * 7.5f)]; 
 			dir *= FORCE;
 			moveForce.x = dir.x;
 			moveForce.y = 0.0f;

@@ -11,7 +11,7 @@ public class chk_collide : MonoBehaviour {
 
 	private float reproduceInterval;
 	SphereCollider cld;
-	public float time;
+	private float time;
 
 	void Start () {
 		cld = GetComponent<SphereCollider> ();
@@ -60,7 +60,6 @@ public class chk_collide : MonoBehaviour {
 	}
 
 	private void SpawnChicken(){
-		Debug.Log ("Chicken reproduced!");
 		GameObject baby = Instantiate(gameObject);
 		Transform trf = baby.transform;
 		trf.position = new Vector3(trf.position.x+0.5f, trf.position.y+0.8f, trf.position.z);
