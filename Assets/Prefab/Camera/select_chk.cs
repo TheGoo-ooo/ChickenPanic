@@ -14,8 +14,8 @@ using UnityEngine;
 /// </summary>
 public class select_chk : MonoBehaviour {
 
-	private float DEFAULT_POS_Y = -0.2f;
-	private float POS_Y_OFFSET = 1f;
+	private float DEFAULT_POS_Y = 0.0f;
+	private float POS_Y_OFFSET = 2f;
 	// LayerMask: tell what objects (within a layer) can be seen.
 	private int layerMask;
 
@@ -45,7 +45,7 @@ public class select_chk : MonoBehaviour {
 			} 
 		} else if(Input.GetMouseButtonUp(0)){
 			if (chicken != null) {
-				chicken.GetComponent<Collider> ().enabled = true;
+				//chicken.GetComponent<Collider> ().enabled = true;
 				chickenSelected = false;
 				chicken = null;
 			}
@@ -57,7 +57,7 @@ public class select_chk : MonoBehaviour {
 				hitInfo.point.x, 
 				DEFAULT_POS_Y + POS_Y_OFFSET, 
 				hitInfo.point.z);
-			chicken.GetComponent<Collider>().enabled = false;
+			//chicken.GetComponent<Collider>().enabled = false;
 		}
 	}
 

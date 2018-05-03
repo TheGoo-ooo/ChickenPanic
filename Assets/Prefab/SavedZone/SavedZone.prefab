@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65985032636299172}
   - component: {fileID: 23449415724352214}
   m_Layer: 0
-  m_Name: direction indicator
+  m_Name: roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,8 +41,8 @@ GameObject:
   - component: {fileID: 23364414015784214}
   - component: {fileID: 65087002726923096}
   m_Layer: 0
-  m_Name: Wolf
-  m_TagString: SavingZone
+  m_Name: base
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,9 +55,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4792814411196326}
+  - component: {fileID: 65267053260538760}
   m_Layer: 0
   m_Name: SavedZone
-  m_TagString: Untagged
+  m_TagString: SavingZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,9 +95,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752117911683744}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.742325, y: 0.29999995, z: 21.6568}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 263.68, y: 1.2, z: 245.9}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4782500363449210}
   - {fileID: 4269160914442692}
@@ -197,6 +198,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65267053260538760
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752117911683744}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.183338, y: 6.1517715, z: 5.525804}
+  m_Center: {x: -0.0039539337, y: 1.4390612, z: -0.054847002}
 --- !u!65 &65985032636299172
 BoxCollider:
   m_ObjectHideFlags: 1

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class game_logic : MonoBehaviour {
+public class game_logic2 : MonoBehaviour {
 
 	// Difficutly settings.
 	private int difficulty;
@@ -25,8 +25,6 @@ public class game_logic : MonoBehaviour {
 	public string loseSceneName = "MainMenu";
 	public string retrySceneName = "tuto1";
 
-	public int nbSavedChickhorn;
-
 	void Start(){
 		loseText.gameObject.SetActive(false);
 		loseButton.gameObject.SetActive(false);
@@ -38,26 +36,21 @@ public class game_logic : MonoBehaviour {
 	}
 	void Update () {
 		chickenCount = GameObject.FindGameObjectsWithTag("Chicken").Length;
-		countText.text = (nb_chicken_win - nbSavedChickhorn).ToString() + " chickhorn to save";
+		countText.text = (nb_chicken_win - chickenCount).ToString() + " chickhorn to breed";
 
 		if(chickenCount < 2 && hasWon != true)
 		{
-			if (nbSavedChickhorn + chickenCount < nb_chicken_win) {
-				loseText.gameObject.SetActive(true);
-				loseButton.gameObject.SetActive(true);
-				if (retryButton != null)
-					retryButton.gameObject.SetActive (true);
-			}
+			loseText.gameObject.SetActive(true);
+			loseButton.gameObject.SetActive(true);
+			if (retryButton != null)
+				retryButton.gameObject.SetActive (true);
 		} 
-		if(nbSavedChickhorn >= nb_chicken_win)
+		if(chickenCount >= nb_chicken_win)
 		{
 			hasWon = true;
 			winText.gameObject.SetActive(true);
 			winButton.gameObject.SetActive(true);
 		}
-	}
-	public void IncrementSavedChickhorn(){
-		nbSavedChickhorn++;
 	}
 	public void loseScene(){
 		SceneManager.LoadScene(loseSceneName, LoadSceneMode.Single);
