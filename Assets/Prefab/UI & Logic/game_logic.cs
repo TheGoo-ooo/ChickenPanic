@@ -13,12 +13,15 @@ public class game_logic : MonoBehaviour {
 	private int chickenCount;
 	private bool hasWon = false;
 
+
 	// Inputs.
 	public Text countText;
 	public Text winText;
 	public Text loseText;
 	public Button winButton;
 	public Button loseButton;
+
+	public int nbSavedChickhorn;
 
 	void Start(){
 		loseText.gameObject.SetActive(false);
@@ -27,23 +30,27 @@ public class game_logic : MonoBehaviour {
 		winText.gameObject.SetActive(false);
 		winButton.gameObject.SetActive(false);
 	}
-
 	void Update () {
 		chickenCount = GameObject.FindGameObjectsWithTag("Chicken").Length;
-		countText.text = chickenCount.ToString() + " chicken";
+		countText.text = (nb_chicken_win - nbSavedChickhorn).ToString() + " chickhorn to save";
 
 		if(chickenCount < 2 && hasWon != true)
 		{
-			loseText.gameObject.SetActive(true);
-			loseButton.gameObject.SetActive(true);
-		} else if(chickenCount > nb_chicken_win)
+			if (nbSavedChickhorn + chickenCount < nb_chicken_win) {
+				loseText.gameObject.SetActive(true);
+				loseButton.gameObject.SetActive(true);
+			}
+		} 
+		if(nbSavedChickhorn >= nb_chicken_win)
 		{
 			hasWon = true;
 			winText.gameObject.SetActive(true);
 			winButton.gameObject.SetActive(true);
 		}
 	}
-
+	public void IncrementSavedChickhorn(){
+		nbSavedChickhorn++;
+	}
 	public void loseScene(){
 		SceneManager.LoadScene("FF_Menu", LoadSceneMode.Single);
 	}
