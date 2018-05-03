@@ -9,6 +9,8 @@ public class chk_collide : MonoBehaviour {
 	private const float REPRODUCE_COOLDOWN_SPEED_UP = 8;
 	private const float REPROCUDE_CHANCE = 0.0f;
 
+	private game_logic myGameLogic;
+
 	private float reproduceInterval;
 	SphereCollider cld;
 	private float time = 1;
@@ -27,6 +29,11 @@ public class chk_collide : MonoBehaviour {
 	void OnCollisionEnter(Collision col)
 	{
 		if (col.gameObject.tag == "Lethal") {
+			Die ();
+		} else if (col.gameObject.tag == "SavingZone") {
+			myGameLogic = GameObject.FindObjectOfType(typeof(game_logic)) as game_logic;
+			myGameLogic.IncrementSavedChickhorn();
+			//myGameLogic.IncrementSavedChickhorn();
 			Die ();
 		} else if (col.gameObject.tag == "Chicken") {
 			Reproduce ();
