@@ -23,10 +23,11 @@ public class select_chk : MonoBehaviour {
 	private GameObject chicken = null;
 	private RaycastHit hitInfo;
 	private float chickenPosY;
+	private bool chickenSelected = false; // Used for move_camera.
 
 	void Start () {
 		hitInfo = new RaycastHit();
-		// Al layers but the 8th.
+		// All layers but the 8th.
 		layerMask = 1 << 8;
 		layerMask = ~layerMask;
 	}
@@ -39,11 +40,13 @@ public class select_chk : MonoBehaviour {
 				if (hitInfo.transform.gameObject.tag == "Chicken")
 				{
 					chicken = hitInfo.transform.gameObject;
+					chickenSelected = true;
 				}
 			} 
 		} else if(Input.GetMouseButtonUp(0)){
 			if (chicken != null) {
 				chicken.GetComponent<Collider> ().enabled = true;
+				chickenSelected = false;
 				chicken = null;
 			}
 		}
@@ -56,5 +59,9 @@ public class select_chk : MonoBehaviour {
 				hitInfo.point.z);
 			chicken.GetComponent<Collider>().enabled = false;
 		}
+	}
+
+	bool getChickenSelected(){
+		return chickenSelected;
 	}
 }
