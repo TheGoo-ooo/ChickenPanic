@@ -37,9 +37,16 @@ public class select_chk : MonoBehaviour {
 			bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
 			if (hit) 
 			{
-				if (hitInfo.transform.gameObject.tag == "Chicken")
-				{
+				if (hitInfo.transform.gameObject.tag == "Chicken") {
 					chicken = hitInfo.transform.gameObject;
+					chickenSelected = true;
+				} else if (hitInfo.transform.gameObject.tag == "SeedBox") {
+					GameObject graine = hitInfo.transform.GetChild(0).gameObject;
+					GameObject baby = Instantiate(graine);
+					baby.SetActive (true);
+
+					chicken = baby;
+
 					chickenSelected = true;
 				}
 			} 
@@ -47,6 +54,7 @@ public class select_chk : MonoBehaviour {
 			if (chicken != null) {
 				//chicken.GetComponent<Collider> ().enabled = true;
 				chickenSelected = false;
+				chicken.GetComponent<Rigidbody> ().velocity = Vector3.zero;
 				chicken = null;
 			}
 		}

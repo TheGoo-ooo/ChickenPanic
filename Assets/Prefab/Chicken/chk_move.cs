@@ -12,7 +12,7 @@ public class chk_move : MonoBehaviour {
 
 	private Rigidbody rb;
 	private float deltaTime = 0;
-	Vector3 moveForce = Vector3.zero;
+	public Vector3 moveForce = Vector3.zero;
 
 	private int currentDirection = 0;
 	private Vector2[] directions = {

@@ -26,3 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/finalProduct/Credits.unity
     guid: 594949faebfae2d4d8a640483b8975b5
+  - enabled: 1
+    path: Assets/Scenes/finalProduct/tuto4.unity
+    guid: bc298fa5890611e488091530549cffe1

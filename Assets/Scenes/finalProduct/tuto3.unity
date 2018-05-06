@@ -265,7 +265,7 @@ MonoBehaviour:
   winButton: {fileID: 1995559524}
   loseButton: {fileID: 1900984147}
   retryButton: {fileID: 2140814479}
-  winSceneName: MainMenu
+  winSceneName: tuto4
   loseSceneName: MainMenu
   retrySceneName: tuto3
 --- !u!114 &191124572
